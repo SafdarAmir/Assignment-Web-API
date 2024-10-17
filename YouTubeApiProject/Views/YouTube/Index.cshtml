@@ -1,0 +1,20 @@
+﻿@model List<YouTubeApiProject.Models.YouTubeVideoModel>
+
+<h2>Search YouTube Videos</h2>
+
+<!-- Search form -->
+<form asp-action="Search" method="post" onsubmit="return validateSearch()">
+    <input type="text" name="query" id="searchQuery" placeholder="Search for videos..." />
+    <button type="submit">Search</button>
+</form>
+
+<script>
+    function validateSearch() {
+        var query = document.getElementById("searchQuery").value.trim();
+        if (query === "") {
+            alert("Please enter a search query.");
+            return false;  // Prevent form submission
+        }
+        return true;  // Allow form submission
+    }
+</script>
